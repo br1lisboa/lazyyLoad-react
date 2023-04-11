@@ -1,0 +1,17 @@
+.logo {
+    max-height: 70px
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.centerStart {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    align-content: center;
+}
