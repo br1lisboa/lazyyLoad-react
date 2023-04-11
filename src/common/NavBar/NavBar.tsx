@@ -1,22 +1,14 @@
-
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import styles from './styles.module.css';
-import farmaIcon from "../assets/images/farmaIcon.png"
-
-import { Box, AppBar, Toolbar, IconButton, Button, Grid } from '@mui/material';
+import { Box, AppBar, Toolbar, IconButton, Button, Grid, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Divider, Drawer } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
-import ListItemText from '@mui/material/ListItemText';
-import Divider from '@mui/material/Divider';
-import Drawer from '@mui/material/Drawer';
-import { useNavigate } from 'react-router-dom';
+
+import styles from '../styles.module.css';
+import farmaIcon from "../../assets/images/farmaIcon.png"
 
 type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
@@ -86,7 +78,7 @@ export const NavBar: React.FC<{}> = () => {
     return (
         <>
             <Box sx={{ flexGrow: 1 }}>
-                <AppBar position="static">
+                <AppBar position="sticky">
                     <Toolbar>
                         <Grid container direction='row' justifyContent='space-between' alignItems='center'>
                             <Grid item>
