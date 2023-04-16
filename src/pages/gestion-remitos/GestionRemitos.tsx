@@ -3,7 +3,7 @@ import { Stack } from '@mui/system';
 import { useNotification } from '../../context/Notification/notification.context';
 // import { useNotification } from '../../context/Notification/notification.context';
 
-export const GestionRemitos: React.FC<{}> = () => {
+const GestionRemitos: React.FC<{}> = () => {
 
     const { getError, getSuccess } = useNotification()
 
@@ -44,3 +44,5 @@ export const GestionRemitos: React.FC<{}> = () => {
         </Container>
     )
 }
+
+export default GestionRemitos

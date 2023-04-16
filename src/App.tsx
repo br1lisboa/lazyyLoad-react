@@ -1,4 +1,4 @@
-
+import { Suspense } from "react";
 import { BrowserRouter } from "react-router-dom";
 import { AppRouter } from "./routes/Router";
 import { NotificationProvider } from './context/Notification/notification.context';
@@ -7,7 +7,9 @@ function App() {
   return (
     <NotificationProvider>
       <BrowserRouter>
-        <AppRouter />
+        <Suspense fallback={'Cargando..'}>
+          <AppRouter />
+        </Suspense>
       </BrowserRouter>
     </NotificationProvider>
   );

@@ -6,15 +6,23 @@ import MenuIcon from '@mui/icons-material/Menu';
 import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 import MeetingRoomIcon from '@mui/icons-material/MeetingRoom';
+import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
 
 import styles from '../styles.module.css';
 import farmaIcon from "../../assets/images/farmaIcon.png"
+import { useDispatch } from 'react-redux';
+import { setOpenCart } from '../../redux/slices/cartIcon.slice';
+import { useAppSelector } from '../../redux/hooks';
+import Badge from '@mui/material/Badge';
 
 type Anchor = 'top' | 'left' | 'bottom' | 'right';
 
 export const NavBar: React.FC<{}> = () => {
 
     const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const isOpen = useAppSelector((state) => state.cartIconReducer)
+    const itemsCart = useAppSelector((state) => state.cartReducer)
 
     const [state, setState] = useState({
         top: false,
@@ -75,6 +83,10 @@ export const NavBar: React.FC<{}> = () => {
         </Box>
     );
 
+    function handleOpenCart() {
+        dispatch(setOpenCart(!isOpen.openCart))
+    }
+
     return (
         <>
             <Box sx={{ flexGrow: 1 }}>
@@ -94,6 +106,14 @@ export const NavBar: React.FC<{}> = () => {
                             </Grid>
                             <Grid item xs={10} className={styles.centerStart}>
                                 <img src={farmaIcon} alt="farma" className={styles.logo} />
+                            </Grid>
+                            <Grid item >
+                                <IconButton
+                                    onClick={handleOpenCart}>
+                                    <Badge badgeContent={itemsCart.length}>
+                                        <ShoppingCartRoundedIcon />
+                                    </Badge>
+                                </IconButton>
                             </Grid>
                             <Grid item >
                                 <Button color="inherit">Login</Button>

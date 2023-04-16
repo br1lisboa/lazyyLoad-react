@@ -1,15 +1,13 @@
 import { Route, Routes } from "react-router-dom";
-import { HomePage } from "../pages/home";
-import { RecepcionRemitos } from '../pages/recepcion-remitos';
+import { HomePage, CharacterPage, RecepcionRemitos, GestionRemitos, Practice } from "../pages";
 import { RouterLayout } from '../common/RouterLayout';
-import { GestionRemitos } from '../pages/gestion-remitos/GestionRemitos';
-import { Practice } from '../pages/practice/index';
 
 export const AppRouter = () => {
     return (
         <Routes>
             <Route path="/" element={<RouterLayout />}>
                 <Route path="/" element={<HomePage />} />
+                <Route path="/character/:id" element={<CharacterPage />} />
                 <Route path="/recepcion-remitos" element={<RecepcionRemitos />} />
                 <Route path="/gestion-remitos" element={<GestionRemitos />} />
             </Route>

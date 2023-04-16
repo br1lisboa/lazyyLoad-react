@@ -8,7 +8,7 @@ type LoginType = {
     password: string
 }
 
-export const Practice = () => {
+const Practice = () => {
 
     const { getError, getSuccess } = useNotification()
 
@@ -59,3 +59,5 @@ export const Practice = () => {
         </Container >
     )
 }
+
+export default Practice
